@@ -22,11 +22,7 @@ node{
     }
    sh 'docker push vignesh1001/myweb:0.0.1'
    }
-   stage('Nexus Image Push'){
-   sh "docker login -u admin -p viki123 3.90.225.158:9090"
-   sh "docker tag vignesh1001/myweb:0.0.1 3.90.225.158:9090/viki:1.1.0"
-   sh 'docker push 3.90.225.158:9090/viki:1.1.0'
-   }
+   
    stage('Remove Previous Container'){
 	try{
 		sh 'docker rm -f tomcattest'
