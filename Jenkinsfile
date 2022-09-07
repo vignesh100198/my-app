@@ -3,7 +3,6 @@ node{
      git 'https://github.com/vignesh100198/my-app.git'
    }
    stage('Compile-Package'){
-
       def mvnHome =  tool name: 'maven3', type: 'maven'   
       sh "${mvnHome}/bin/mvn clean package"
 	  sh 'mv target/myweb*.war target/newapp.war'
@@ -28,7 +27,6 @@ node{
    sh "docker tag vignesh1001/myweb:0.0.1 3.90.225.158:9090/viki:1.0"
    sh 'docker push 3.90.225.158:9090/viki:1.0'
    }
-
    stage('Remove Previous Container'){
 	try{
 		sh 'docker rm -f tomcattest'
